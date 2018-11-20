@@ -1,17 +1,21 @@
 <template>
 	<div class='home'>
 		<Header></Header>
-	</div>
+    <Nav></Nav>
+  </div>
 </template>
 
 <script>
 	// https://m.maizuo.com/v4/api/film/coming-soon?__t=1542266404759&page=1&count=3
 	                    // /api/v4/api/film/now-playing'
 import Header from './commons/Header.vue'
+import Nav from './commons/Nav.vue'
+
 export default{
 	name:'Home',
-	components:{Header},
+	components:{Header,Nav},
     data(){
+      return ;
     	
     }
     // 计算属性

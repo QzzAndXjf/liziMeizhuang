@@ -29,6 +29,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
    npm install vue-cli -g
    npm install less less-loader --save-dev
    npm install mint-ui -S
+   npm install swiper
 
 
 
