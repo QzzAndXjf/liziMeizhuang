@@ -21,13 +21,14 @@
     	};
     },
     methods:{
+    	addStyle(){
+	  		
+	  	}
     	
     },
     mounted(){
 	  // var swiper = new Swiper('.swiper-container');
-	  addStyle(){
-	  	
-	  }
+
     }
     
 }	
