@@ -11,7 +11,7 @@ import  Home from './components/Home/Home.vue'
 
 export default {
   name: 'App',
-  components:{}
+  components:{Home}
 }
 </script>
 
