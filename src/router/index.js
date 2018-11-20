@@ -6,10 +6,12 @@ Vue.use(Router)
 
 import Login  from '../components/MyMsg/login.vue'
 import Zhuce  from '../components/MyMsg/zhuce.vue'
+import Mylizi  from '../components/MyMsg/mylizi.vue'
 
 const routes = [
   { path: '/login', component: Login ,name:'login'},
-  { path: '/zhuce', component: Zhuce  ,name:'zhuce' }
+  { path: '/zhuce', component: Zhuce  ,name:'zhuce' },
+  { path: '/mylizi', component: Mylizi  ,name:'mylizi' }
 ]
 const router = new Router({
   routes // (缩写) 相当于 routes: routes
