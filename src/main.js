@@ -6,6 +6,9 @@ import router from './router/index.js'
 
 import './styles/reset.less'
 
+import Mint from 'mint-ui';
+Vue.use(Mint);
+
 Vue.config.productionTip = false
 
 
