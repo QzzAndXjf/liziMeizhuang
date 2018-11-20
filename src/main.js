@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
 
-import './styles/reset.less'
+import './styls/reset.less'
 
 import Mint from 'mint-ui';
 Vue.use(Mint);
