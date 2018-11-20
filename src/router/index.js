@@ -4,11 +4,14 @@ import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
-import Home from '../components/Home/Home'
-import My from '../components/My/My'
+import Login  from '../components/MyMsg/login.vue'
+import Zhuce  from '../components/MyMsg/zhuce.vue'
 
-export default new Router({
-  routes: [
-    {path: '/home', component: Home ,name:'home'}
-  ]
+const routes = [
+  { path: '/login', component: Login ,name:'login'},
+  { path: '/zhuce', component: Zhuce  ,name:'zhuce' }
+]
+const router = new Router({
+  routes // (缩写) 相当于 routes: routes
 })
+ export default router
