@@ -1,37 +1,118 @@
 <template>
 	<!-- Swiper -->
-  <div class="swiper-container">
-    <div class="swiper-wrapper" id="nav">
-      <div class="swiper-slide" @click="addStyle" v-for="item in navlist">{{item}}</div>
-      
-    </div>
+	<div>
+		<div id="navbar">
+		  <div class="swiper-container">
+		    <div class="swiper-wrapper" id="nav">
+		      <!-- <div :class="swiper_slide" @click="addStyle(swiper_slide)">丽子</div> -->
+		      <!-- <div :class="swiper_slide" :link="toggleList(item.id,item.type)" v-for="item in navlist">{{item.title}}</div> -->
 
-  </div>
+		      <!-- 动态路由的切换 -->
 
+			  <router-link :class="swiper_slide" tag="div" to="HomeBody" active-class="sel">丽子</router-link>
+		      <!-- <router-link active-class="sel" :class="swiper_slide" tag="div" to="NavList" v-for="(item,index) in navlist" :key="index" ：path="toggleList(item.id,item.type)">{{item.title}}</router-link> -->
+
+<!-- @click.native="toggleNav()" -->
+
+		      <router-link 
+		      v-for="(item,index) in navlist" :key="index" 
+		      tag="div" 
+		      :class="swiper_slide"  :path="selInit"  @click.native="toggleNav(item)"
+		      :to="{ path: 'NavList', query: { id: item.id,type:item.type}}"
+		      >{{item.title}}</router-link>
+
+
+		    </div>
+		  </div>
+		</div>
+
+	</div>
+	
 </template>
 
 <script>
+	import Axios from 'axios';
 	import Swiper from 'swiper';
+	import NavList from "./NavList.vue";
 	export default{
 	name:'Nav',
-	components:{},
+	components:{NavList},
     data(){
     	return {
-    		navlist:["丽子","TOP单品","潮流新品","防晒美白","补水保湿","底妆隔离","底妆隔离","底妆隔离","底妆隔离"]
+    		navlist:["丽子","TOP单品"],
+    		swiper_slide:"swiper-slide",
+    		selInit:"1"
     	};
     },
     methods:{
-    	addStyle(){
-	  	
-	  	}
-    	
-    },
-    mounted(){
-	  // var swiper = new Swiper('.swiper-container');
+    	addStyle(swiper_slide,$event){
+	  		swiper_slide = "swiper-slide swiper-slide-active";
+	  		console.log(swiper_slide,$event)
 
-    }
+	  	},
+	  	toggleNav(item){
+	  		this.selInit =item.title;
+	  	},
+	  	toggleList(id,type){
+	  		console.log(id);
+	  		Axios.get('/api/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList',{params:{
+	  			id:id,
+	 			type:type,
+	          	offset:0
+         		}
+      		})
+	        .then((res)=>{
+	            
+	           console.log(res.data.model.data)
+	           // this.navlist=res.data.model.list
+	        })
+	        .catch((err)=>{
+	            console.log(err)
+	        })
+
+	       },
+
+
+	  	getNavList(){
+	  		// https://m.lizi.com/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList&id=5767c678e4b0edc8bf0af2c1&type=ITEM&offset=0
+	  		// https://m.lizi.com/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList&id=5767c68ce4b0edc8bf0af2d8&type=ITEM&offset=0
+
+	  		Axios.get('/api/newIndex/getIndexNavigator',{params:{
+          	 __t:new Date().getTime(),
+          	page:this.current+1,
+          	count:7
+         }
+      		})
+	        .then((res)=>{
+	            
+	           // console.log(res.data.model.list)
+	           this.navlist=res.data.model.list
+	        })
+	        .catch((err)=>{
+	            console.log(err)
+	        })
+	       }
+
+	  	},
+
+	 created(){
+	 	this.getNavList();
+	 },
+	 mounted(){
+		  var swiper = new Swiper('.swiper-container',{
+		  	// spaceBetween: ,
+            slidesPerView:'auto',
+            freeMode: true
+		  });
+
+	    }
+
+
+
+ }
+
+   
     
-}	
 
 
 
@@ -42,20 +123,18 @@
 <style lang="less" scoped>
 @import url('../../../styls/main.less');
 @import url("../../../../static/swiper-4.4.2/dist/css/swiper.css");
-.swiper-container{
-	.swiper-wrapper{
-		.swiper-slide{
-			.w(76);
-			.h(40);
-			.lh(40);
-			text-align:center;
-			.fs(14)
-		}
-	}
-}
 
-#nav{
-	overflow-x:auto;
+#navbar{
+	position: fixed;
+	.top(44);
+    z-index:9999;
+    border-bottom:2px solid #cac6c6;
+    box-shadow: 0 3px 20px -4px;
+
+    .swiper-container{
+	background: #fff;
+	#nav{
+	// overflow-x:auto;
 	.swiper-slide{
 			.w(76)!important;
 			.h(40);
@@ -63,6 +142,14 @@
 			text-align:center;
 			.fs(14)
 		}
+	}
+
+	}
+
+}
+
+.sel{
+	border-bottom:2px solid red;
 }
 
 </style>

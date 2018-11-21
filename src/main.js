@@ -7,9 +7,13 @@ import router from './router/index.js'
 import './styls/reset.less'
 
 import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css'
 Vue.use(Mint);
 
 Vue.config.productionTip = false
+
+import  Axios from 'axios'
+Vue.prototype.$axios=Axios  // 使用的时候  this.$axios
 
 
 /* eslint-disable no-new */

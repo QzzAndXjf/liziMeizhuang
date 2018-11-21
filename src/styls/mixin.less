@@ -5,6 +5,9 @@
 .h(@px){
 	height: unit(@px/37.5,rem);
 }
+.minh(@px){
+	min-height: unit(@px/37.5,rem);
+}
 .fs(@px){
 	font-size: unit(@px/37.5,rem);
 }
@@ -22,4 +25,10 @@
 	padding-bottom:unit(@bottom/37.5,rem);
 	padding-left:unit(@left/37.5,rem);
 	padding-right:unit(@right/37.5,rem);
+}
+.margin(@top,@right,@bottom,@left){
+	margin-top:unit(@top/37.5,rem);
+	margin-bottom:unit(@bottom/37.5,rem);
+	margin-left:unit(@left/37.5,rem);
+	margin-right:unit(@right/37.5,rem);
 }
