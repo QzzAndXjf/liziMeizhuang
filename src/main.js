@@ -21,12 +21,12 @@ Vue.prototype.$qs=qs
 Vue.config.productionTip = false
 
 
-import  Axios from 'axios'
-Vue.prototype.$axios=Axios  // 使用的时候  this.$axios
+// import  Axios from 'axios'
+// Vue.prototype.$axios=Axios  // 使用的时候  this.$axios
 
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-Vue.use(MintUI)
+// import MintUI from 'mint-ui'
+// import 'mint-ui/lib/style.css'
+// Vue.use(MintUI)
 
 
 
