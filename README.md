@@ -31,6 +31,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
    npm install mint-ui -S
    npm install swiper
    npm install axios
+   npm i ly-tab -S  滑动导航插件
 
 
 

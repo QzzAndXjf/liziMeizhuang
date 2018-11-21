@@ -57,7 +57,7 @@
           duration:-1
         });
 
-        this.$axios.get('/api/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset='+this.page,{})
+        this.$axios.get('/qzz/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset='+this.page,{})
         .then((res)=>{
            this.hotActiveList = this.hotActiveList.concat(res.data.model);
            if(res.data.model.length == 0){
@@ -80,7 +80,7 @@
           duration:-1
         });
 
-        this.$axios.get('/api/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset='+this.page,{})
+        this.$axios.get('/qzz/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset='+this.page,{})
         .then((res)=>{
            this.hotActiveList = res.data.model;
            console.log(res.data.model);

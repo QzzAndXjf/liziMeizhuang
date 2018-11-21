@@ -55,7 +55,7 @@
 	  	},
 	  	toggleList(id,type){
 	  		console.log(id);
-	  		Axios.get('/api/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList',{params:{
+	  		Axios.get('/qzz/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList',{params:{
 	  			id:id,
 	 			type:type,
 	          	offset:0
@@ -77,7 +77,7 @@
 	  		// https://m.lizi.com/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList&id=5767c678e4b0edc8bf0af2c1&type=ITEM&offset=0
 	  		// https://m.lizi.com/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList&id=5767c68ce4b0edc8bf0af2d8&type=ITEM&offset=0
 
-	  		Axios.get('/api/newIndex/getIndexNavigator',{params:{
+	  		Axios.get('/qzz/newIndex/getIndexNavigator',{params:{
           	 __t:new Date().getTime(),
           	page:this.current+1,
           	count:7

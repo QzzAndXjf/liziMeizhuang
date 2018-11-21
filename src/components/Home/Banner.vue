@@ -79,7 +79,7 @@
 
        
     	getBannerData(){
-        Axios.get('/api/newIndex/index',{})
+        Axios.get('/qzz/newIndex/index',{})
         .then((res)=>{
             console.log(res.data.model.sourceAdv.model)
             this.bannerlist = res.data.model.banners.list

@@ -15,13 +15,15 @@ module.exports = {
             target:'http://localhost:8088/',//目标服务器
             changeOrigin:true,//是否允许代理
             pathRewrite:{'^/api':''}// 匹配请求接口
-        }
-    },
-
+        },
+        "/qzz":{
             target:'https://m.lizi.com/',//目标服务器
             changeOrigin:true,//是否允许代理
-            pathRewrite:{'^/api':''}// 匹配请求接口
-        }},
+            pathRewrite:{'^/qzz':''}// 匹配请求接口
+        },
+
+    },
+
 
 
     // Various Dev Server settings

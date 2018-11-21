@@ -42,7 +42,7 @@
     	
 	  	toggleNav(id,type){
 	  		
-	  		Axios.get('/api/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList',{params:{
+	  		Axios.get('/qzz/newIndex/getItemDetailList?max=10&url=%2FnewIndex%2FgetItemDetailList',{params:{
 	  			id:id,
 	 			type:type,
 	          	offset:0
