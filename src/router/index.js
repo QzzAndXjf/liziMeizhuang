@@ -6,6 +6,8 @@ Vue.use(Router)
 
 import Login  from '../components/MyMsg/login.vue'
 import Zhuce  from '../components/MyMsg/zhuce.vue'
+import Mylizi  from '../components/MyMsg/mylizi.vue'
+
 
 import Home  from '../components/Home/Home.vue'
 import HomeBody  from '../components/Home/HomeBody.vue'
@@ -19,6 +21,13 @@ import china  from '../components/Home/HotDetails/china.vue'
 //   { path: '/zhuce', component: Zhuce  ,name:'zhuce' },
 //   { path: '/home', component: Home  ,name:'home' }
 // ]
+
+
+const routes = [
+  { path: '/login', component: Login ,name:'login'},
+  { path: '/zhuce', component: Zhuce  ,name:'zhuce' },
+  { path: '/mylizi', component: Mylizi  ,name:'mylizi' }
+]
 
 const router = new Router({
   // routes // (缩写) 相当于 routes: routes
