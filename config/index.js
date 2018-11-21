@@ -18,6 +18,12 @@ module.exports = {
         }
     },
 
+            target:'https://m.lizi.com/',//目标服务器
+            changeOrigin:true,//是否允许代理
+            pathRewrite:{'^/api':''}// 匹配请求接口
+        }},
+
+
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

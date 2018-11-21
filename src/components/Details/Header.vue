@@ -1,8 +1,8 @@
 <template>
 	<div class="header">
-		<i class="fa fa-user-o" aria-hidden="true"></i>
-		<h1>丽子美妆</h1>
-		<i class="fa fa-search" aria-hidden="true"></i>
+		  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <span>商品详情</span>
+          <i class="fa fa-home" aria-hidden="true"></i>
 	</div>
 </template>
 
@@ -22,7 +22,7 @@ export default{
 
 </script>
 <style lang="less" scoped>
-@import url('../../../styls/main.less');
+@import url('../../styls/main.less');
 	.header{
 		position: fixed;
 		z-index:9999;
@@ -43,8 +43,9 @@ export default{
 			.lh(44);
 			text-align: center;
 		}
-		h1{
-			.fs(22);
+		span{
+			.fs(18);
+			font-style: normal;
 		}
 	}
 
