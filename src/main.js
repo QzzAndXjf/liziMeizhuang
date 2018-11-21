@@ -9,6 +9,14 @@ import './styls/reset.less'
 import Mint from 'mint-ui';
 Vue.use(Mint);
 
+
+import  Axios from 'axios'
+Vue.prototype.$axios=Axios
+import qs from 'qs';
+Vue.prototype.$qs=qs
+
+
+
 Vue.config.productionTip = false
 
 import MintUI from 'mint-ui'
