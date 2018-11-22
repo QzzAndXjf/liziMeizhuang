@@ -1,8 +1,6 @@
 <template>
 	<div class="header">
-		<router-link tag="i" to="/login" class="fa fa-user-o" aria-hidden="true">
-
-		</router-link>
+		<i class="fa fa-user-o" aria-hidden="true" @click="goMy"></i>
 		<h1>丽子美妆</h1>
 		<i class="fa fa-search" aria-hidden="true"></i>
 	</div>
@@ -17,7 +15,15 @@ export default{
     	return {};
     },
     methods:{
-    	
+    	goMy(){
+    		if(this.$store.state.uname){
+    			this.$router.push("/mylizi");
+    		}else {
+    			alert("您还未登陆");
+    			this.$router.push("/login");
+    		}
+    		
+    	}
     }
     
 }	

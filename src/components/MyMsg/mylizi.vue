@@ -16,7 +16,7 @@
             <div class="pic">
               <img src="../../assets/face.png" height="80" width="80" alt="" />
             </div>
-            <p>{{this.$route.params.user}}</p>
+            <p>{{this.$store.state.uname}}</p>
             <span>0/298</span>  
           </div>
     
