@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Vuex from 'vuex'
 // import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
+Vue.use(Vuex)
 
 import Login  from '../components/MyMsg/login.vue'
 import Zhuce  from '../components/MyMsg/zhuce.vue'
@@ -12,6 +14,7 @@ import Mylizi  from '../components/MyMsg/mylizi.vue'
 import Home  from '../components/Home/Home.vue'
 import HomeBody  from '../components/Home/HomeBody.vue'
 import NavList  from '../components/Home/commons/NavList.vue'
+import ShopCar  from '../components/Home/commons/ShopCar.vue'
 import Details  from '../components/Details/Details.vue'
 import riben  from '../components/Home/HotDetails/riben.vue'
 import china  from '../components/Home/HotDetails/china.vue'
@@ -38,6 +41,7 @@ const router = new Router({
 	  { path: '/mylizi', component: Mylizi,name:'mylizi' },
 	  { path: '/home', component: Home,name:'home' },
 	  { path: '/details', component: Details,name:'details' },
+	  { path: '/shopcar', component: ShopCar,name:'shopcar' },
 	  { path: '/riben', component: riben,name:'riben' },
 	  { path: '/china', component: china,name:'china' },
 	  
@@ -55,6 +59,12 @@ const router = new Router({
 	          path: 'NavList',
 	          component: NavList
 	        },
+	        // {
+	        //   // 当 /user/:id/posts 匹配成功
+	        //   // UserPosts 会被渲染在 User 的 <router-view> 中
+	        //   path: 'details',
+	        //   component: Details
+	        // },
 	        
 	      ]
 	    }

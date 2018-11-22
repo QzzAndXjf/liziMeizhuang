@@ -1,19 +1,11 @@
-<template>
+	<template>
 	<!-- Swiper -->
 	<div>
 		<div id="navbar">
 		  <div class="swiper-container">
 		    <div class="swiper-wrapper" id="nav">
-		      <!-- <div :class="swiper_slide" @click="addStyle(swiper_slide)">丽子</div> -->
-		      <!-- <div :class="swiper_slide" :link="toggleList(item.id,item.type)" v-for="item in navlist">{{item.title}}</div> -->
-
 		      <!-- 动态路由的切换 -->
-
 			  <router-link :class="swiper_slide" tag="div" to="HomeBody" active-class="sel">丽子</router-link>
-		      <!-- <router-link active-class="sel" :class="swiper_slide" tag="div" to="NavList" v-for="(item,index) in navlist" :key="index" ：path="toggleList(item.id,item.type)">{{item.title}}</router-link> -->
-
-<!-- @click.native="toggleNav()" -->
-
 		      <router-link 
 		      v-for="(item,index) in navlist" :key="index" 
 		      tag="div" 
@@ -41,7 +33,12 @@
     	return {
     		navlist:["丽子","TOP单品"],
     		swiper_slide:"swiper-slide",
-    		selInit:"1"
+    		selInit:"1",
+    		selectedId: 0,
+    		options: {
+		    activeColor: '#1d98bd'
+		        // 可在这里指定labelKey为你数据里文字对应的字段名
+		      },
     	};
     },
     methods:{
@@ -97,6 +94,7 @@
 
 	 created(){
 	 	this.getNavList();
+	 	
 	 },
 	 mounted(){
 		  var swiper = new Swiper('.swiper-container',{
@@ -112,11 +110,7 @@
  }
 
    
-    
-
-
-
-
+   
 </script>
 
 
