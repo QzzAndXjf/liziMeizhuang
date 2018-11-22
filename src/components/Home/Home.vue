@@ -1,10 +1,10 @@
 <template>
 	<div class='home'>
 		<Header></Header>
-    <Nav></Nav>
-    <router-view></router-view>
-    <Bottom></Bottom>
-    <GoTop></GoTop>
+        <Nav></Nav>
+        <router-view></router-view>
+        <Bottom></Bottom>
+        <GoTop></GoTop>
   </div>
 </template>
 
@@ -16,12 +16,11 @@ import Nav from './commons/Nav.vue'
 import GoTop from './commons/GoTop.vue'
 import Bottom from './commons/Bottom.vue'
 import HomeBody from './HomeBody.vue'
-// import HotActive from './HotActive.vue'
 
 
 export default{
 	name:'Home',
-	components:{Header,Nav,HomeBody,Bottom,GoTop},
+	components:{Header,Nav,HomeBody,Bottom,GoTop,},
     data(){
       return {};
     	

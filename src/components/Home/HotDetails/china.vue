@@ -1,9 +1,9 @@
 <template>
 	<div id="riben">
 		<div class="header">
-		  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goback"></i>
           <span>中国馆</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="gohome"></i>
 		</div>
 
 		<div class="body">
@@ -1108,7 +1108,13 @@
  
     	};
     },
-    methods:{   	
+    methods:{   
+        goback(){
+            this.$qzzrouter.go(-1);
+        },
+        gohome(){
+            this.$qzzrouter.push("/");
+        }	
 	  	
 	},
 	created(){

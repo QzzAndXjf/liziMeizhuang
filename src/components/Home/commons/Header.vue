@@ -1,6 +1,8 @@
 <template>
 	<div class="header">
-		<i class="fa fa-user-o" aria-hidden="true"></i>
+		<router-link tag="i" to="/login" class="fa fa-user-o" aria-hidden="true">
+
+		</router-link>
 		<h1>丽子美妆</h1>
 		<i class="fa fa-search" aria-hidden="true"></i>
 	</div>

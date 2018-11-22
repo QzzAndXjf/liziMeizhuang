@@ -32,6 +32,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
    npm install swiper
    npm install axios
    npm i ly-tab -S  滑动导航插件
+   vue-resource   读取json文件的插件
+
+      用不上
+                              npm install --save fetch   fetch跨域（测试请求json文件）
+                               npm install --save dns   与fecth 一起用
 
 
 

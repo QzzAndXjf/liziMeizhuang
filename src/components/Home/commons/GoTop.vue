@@ -8,13 +8,21 @@
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
       </div>
     </transition>
+
+    
+    <div id="box" v-show='show'>
+      <div>
+        <i class="fa fa-shopping-bag" aria-hidden="true" @click="goShopCar"></i>
+      </div>
+    </div>
+
 	</div>
 </template>
 
 <script>
-
+import router from '../../../router/index.js'
 export default{
-	name:'movie',
+	name:'gotop',
 	components:{},
     data(){
     	return {
@@ -26,7 +34,11 @@ export default{
       goTop(){
         
         window.scrollTo(0,0);
+      },
+      goShopCar(){
+          router.push({ path: '/shopcar' })
       }
+   
     },
     computed:{
 
@@ -48,9 +60,7 @@ export default{
         }
       })
     },
-    updated(){
-      console.log(11111)
-    }
+    
 }	
 
 </script>
@@ -71,5 +81,27 @@ export default{
   align-items:center;
 
 }
+
+div#box{
+    position:fixed;
+    .left(10);
+    .bottom(20);
+    border-radius: 50%;
+    opacity: 0.8;
+    .w(50);
+    .h(50);
+    // .lh(40);
+    text-align: center;
+    background: #ff666b;
+    div{
+      .lh(36);
+      i{
+        .fs(26);
+        color:#fff;
+      }
+
+    }
+  }
+
 
 </style>

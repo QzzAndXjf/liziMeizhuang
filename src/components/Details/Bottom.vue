@@ -28,8 +28,10 @@ export default{
 <style lang="less" scoped>
 @import url('../../styls/main.less');
 .bottom{
+	
 	.bd{
 		position: fixed;
+		background: #fff;
 		bottom:0;
 		border: 1px solid #ccc;
 		display: flex;
