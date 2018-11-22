@@ -35,6 +35,7 @@ const router = new Router({
 	  { path: '/', redirect:'/home/HomeBody'},
 	  { path: '/login', component: Login ,name:'login'},
 	  { path: '/zhuce', component: Zhuce,name:'zhuce' },
+	  { path: '/mylizi', component: Mylizi,name:'mylizi' },
 	  { path: '/home', component: Home,name:'home' },
 	  { path: '/details', component: Details,name:'details' },
 	  { path: '/riben', component: riben,name:'riben' },

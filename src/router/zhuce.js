@@ -90,8 +90,13 @@
    return User.find({$and:[{name:{$regex:name}},{pass:{$regex:pass}}]})
   })
    .then((data)=>{
-        res.send({err:0,msg:'查询成功',data:data})
+    if(data.length ==0){
+        res.send({err:0,msg:'用户名未注册',data:data})
+    }else if(data.length>0){
+         res.send({err:0,msg:'查询成功',data:data})
         console.log(data)  
+    }
+       
   })
   .catch((err)=>{
 

@@ -11,7 +11,7 @@
 
 <script>
 
-import Home from './components/Home/Home.vue';
+// import Home from './components/Home/Home.vue';
 import Mint from 'mint-ui';
 import Vue from 'vue';
 import Axios from 'axios';
@@ -22,7 +22,7 @@ Vue.use(Mint);
 
 export default {
   name: 'App',
-  components:{Home}
+  components:{}
 }
 </script>
 
