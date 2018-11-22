@@ -1,12 +1,13 @@
 <template>
 	<div class="header">
-		  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goBack"></i>
           <span>商品详情</span>
           <i class="fa fa-home" aria-hidden="true"></i>
 	</div>
 </template>
 
 <script>
+import router from '../../router/index.js'
 
 export default{
 	name:'Header',
@@ -15,6 +16,9 @@ export default{
     	return {};
     },
     methods:{
+    	goBack(){
+    		router.go(-1);
+    	}
     	
     }
     

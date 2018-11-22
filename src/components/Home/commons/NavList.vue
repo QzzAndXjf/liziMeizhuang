@@ -2,8 +2,9 @@
 	<div id="NavList">
 		<ul class="items_list">  
 			<li v-for="(item,index) in navlist" :key="index"> 
-				<a href="/product-30183090.html"> 
-					<img :src="'https://images.weserv.nl/?url='+item.pic"> <div class="content"> 
+				<router-link :to="{path:'/details',query:item}">
+					<img :src="'https://images.weserv.nl/?url='+item.pic"> 
+					<div class="content"> 
 						<h2>{{item.title}}</h2> 
 						<p class="s cle"> 
 							<span class="sale-count gray">已售出：{{item.salesCount}}件</span> 
@@ -18,7 +19,7 @@
 							</p> 
 						</div> 
 					</div>     
-				</a> 
+				</router-link> 
 			</li>  
 		</ul>
 	</div>

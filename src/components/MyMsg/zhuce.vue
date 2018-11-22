@@ -1,9 +1,9 @@
 <template>
   <div id="zhuce">
       <div class="header">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <i class="fa fa-arrow-left" aria-hidden="true" @click="back"></i>
           <span>注册</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="goHome"></i>
       </div>
       <div class="msg">
           <input type="text" class="text" name="username" placeholder="输入邮箱" v-model="email">
@@ -52,15 +52,15 @@ export default {
     }
   },
   methods:{
+    back(){
+      this.router.go(-1)
+    },
+    goHome(){
+      this.$router.push('/home/HomeBody')
+    },
     //发送验证码
     sendCode(){
     
-      if(this.send=='send'){
-        
-        this.send='sendWait'
-      }else{
-        console.log(123)
-      }
       let reg = /^[\da-zA-Z][\w\-\.]*@[\da-z\-]{1,63}(\.[a-z]+)+$/;
       if(this.email =='' || !reg.test(this.email)){
             Toast({
@@ -71,19 +71,17 @@ export default {
           console.log(this.email)
             this.$axios.post('./api/zhuce/getCode',qs.stringify({name:this.email}))
             .then((res)=>{
-              // console.log(res.data.data)
               this.code=res.data.data
               console.log(this.code)
             })
             .catch((err) =>{
                 console.log(err);
               });
-
         }
     },
     //注册按钮
     zhuce(){
-      if(this.email !=''&& this.yzWord!='' && this.pass !='' ){
+      if(this.email !=''&& this.yzWord == this.code && this.pass !='' ){
         //判断用户名是否被注册，未注册则插入数据库
         this.$axios.post('./api/zhuce/checkName',qs.stringify({name:this.email}))
               .then((res)=>{
@@ -94,6 +92,7 @@ export default {
                  this.$axios.post('./api/zhuce/addUse',qs.stringify({name:this.email,pass:this.pass}))
                   .then((res)=>{
                       alert('注册成功')
+                      this.$router.push('/login');
                   })
                   .catch((err) =>{
                       console.log(err);
@@ -110,6 +109,11 @@ export default {
                 console.log(err);
               });
 
+      }else if(this.email ==''|| this.yzWord == '' || this.pass =='' ){
+        Toast({
+            message: '请输入注册信息',
+            position:'bottom'
+          });
       }else{
         Toast({
             message: '注册失败!',

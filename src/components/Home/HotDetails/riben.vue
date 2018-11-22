@@ -1,16 +1,16 @@
 <template>
 	<div id="riben">
 		<div class="header">
-		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goBack"></i>
+		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goback"></i>
           <span>日本馆</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="gohome"></i>
 		</div>
 
 		<div class="body">
             <img class="banner" :src="'https://images.weserv.nl/?url='+bannerImg" alt="">
 			<ul>
 				<li class="item_0" v-for="(item,index) in ribenDate" :key="index">
-                <a href="https://m.lizi.com/product-455555552.html" :data-itemnum="item.itemNum">
+                <a @click="addCar(item)" :data-itemnum="item.itemNum">
                     <p class="pic">
                     	<img :src="'https://images.weserv.nl/?url='+item.picUrl">
                     </p>
@@ -1108,10 +1108,18 @@
     	};
     },
     methods:{  
-        goBack(){
-            // this.$route.go(1);
-            // router.go(-1)
-        } 	
+         goback(){
+            this.$qzzrouter.go(-1);
+        },
+        gohome(){
+            this.$qzzrouter.push("/");
+        },
+        addCar(item){
+            var storage = window.localStorage;
+            storage.setItem("good",JSON.stringify(item));
+            this.$store.commit('incrementShopcar');
+            this.$store.commit('addGoodsInCar');
+        }   
 	  	
 	},
 	created(){

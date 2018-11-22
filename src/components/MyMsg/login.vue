@@ -1,13 +1,13 @@
 <template>
   <div id="login">
       <div class="header">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <i class="fa fa-arrow-left" aria-hidden="true" @click="back"></i>
           <span>登录</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="goHome"></i>
       </div>
       <div class="msg">
           <input v-model="user" type="text" class="text" name="username" placeholder="输入手机号/邮箱/用户名" id="username">
-          <input type="password" class="text" name="password" placeholder="登录密码">
+          <input v-model="pass" type="password" class="text" name="password" placeholder="登录密码">
           <p class="forgot">忘记密码？</p>
 
           <span @click='goLogin' class="login_btn">登&nbsp;&nbsp;录</span>
@@ -29,7 +29,6 @@
           <p>丽子客服: 123456768</p>
           <p>@2018 丽子美妆 lizi.com</p>
       </div>
-      {{user}}
   </div>
 </template>
 <script>
@@ -39,21 +38,56 @@ import { Toast } from 'mint-ui';
 import { InfiniteScroll } from 'mint-ui';
 Vue.use(InfiniteScroll);
 
+import qs from 'qs';
+Vue.prototype.$qs=qs
+
 export default {
   name: 'Login',
   components:{},
   data(){
     return {
-        user:''
+        user:'',
+        pass:''
     }
   },
   methods:{
-    goLogin(){
-        if(this.user ==''){
+    back(){
+      this.$router.go(-1)
+    },
+    goHome(){
+      this.$router.push('/home/HomeBody')
+    },
+    goLogin(){   
+        let reg = /^[\da-zA-Z][\w\-\.]*@[\da-z\-]{1,63}(\.[a-z]+)+$/;
+        if(!reg.test(this.user)){
+            Toast({
+                  message: '请输入正确的邮箱号!',
+                  position:'bottom'
+                });
+        }else if(this.user =='' || this.pass =='' ){
             Toast({
                   message: '请输入登录信息',
                   position:'bottom'
                 });
+        }else if(this.user !='' && this.pass !=''&& reg.test(this.user)){
+            this.$axios.post('./api/zhuce/check',qs.stringify({name:this.user,pass:this.pass}))
+            .then((res)=>{
+              if(res.data.msg =='查询成功'){
+                alert('登录成功');
+                 var storage = window.localStorage;
+                 storage.setItem("uname",this.user);
+                 this.$store.commit('setUname');
+                 this.$router.push({name:'mylizi',params:{user:this.user}});
+              }else{
+                Toast({
+                  message: '登录失败',
+                  position:'bottom'
+                });
+              }
+            })
+            .catch((err) =>{
+                console.log(err);
+              });
         }
     }
   }

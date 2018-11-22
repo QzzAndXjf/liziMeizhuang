@@ -1,9 +1,9 @@
 <template>
 	<div id="riben">
 		<div class="header">
-		  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goback"></i>
           <span>中国馆</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="gohome"></i>
 		</div>
 
 		<div class="body">
@@ -11,7 +11,7 @@
             
 			<ul>
 				<li class="item_0" v-for="(item,index) in ribenDate" :key="index">
-                <a href="https://m.lizi.com/product-455555552.html" :data-itemnum="item.itemNum">
+                <a :data-itemnum="item.itemNum" @click="addCar(item)">
                     <p class="pic">
                     	<img :src="'https://images.weserv.nl/?url='+item.picUrl">
                     </p>
@@ -1108,8 +1108,38 @@
  
     	};
     },
-    methods:{   	
-	  	
+    methods:{   
+        goback(){
+            this.$qzzrouter.go(-1);
+        },
+        gohome(){
+            this.$qzzrouter.push("/");
+        },
+        addCar(item){
+            var storage = window.localStorage;
+            storage.setItem("good",JSON.stringify(item));
+            this.$store.commit('incrementShopcar');
+            this.$store.commit('addGoodsInCar');
+        },
+        // removeAaary(_arr, _obj) {
+        //     var length = _arr.length;
+        //     for (var i = 0; i < length; i++) {
+        //         if (_arr[i] == _obj) {
+        //             if (i == 0) {
+        //                 _arr.shift(); //删除并返回数组的第一个元素
+        //                 return _arr;
+        //             }
+        //             else if (i == length - 1) {
+        //                 _arr.pop();  //删除并返回数组的最后一个元素
+        //                 return _arr;
+        //             }
+        //             else {
+        //                 _arr.splice(i, 1); //删除下标为i的元素
+        //                 return _arr;
+        //             }
+        //         }
+        //      }
+        // }	
 	},
 	created(){
 
