@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
+import store from './store/index.js'
 Vue.prototype.$qzzrouter=router
 
 import './styls/reset.less'
@@ -44,6 +45,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

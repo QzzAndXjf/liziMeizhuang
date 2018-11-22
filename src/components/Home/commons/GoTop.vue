@@ -13,6 +13,7 @@
     <div id="box" v-show='show'>
       <div>
         <i class="fa fa-shopping-bag" aria-hidden="true" @click="goShopCar"></i>
+        <span>{{this.$store.state.shopcarNum}}</span>
       </div>
     </div>
 
@@ -98,6 +99,21 @@ div#box{
       i{
         .fs(26);
         color:#fff;
+      }
+      span{
+        display: block;
+        position: absolute;
+        .top(-5);
+        .right(-5);
+        font-weight: bold;
+        .w(25);
+        .h(25);
+        color:#e4393c;
+        .lh(25);
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        .fs(12);
+        background: #fff;
       }
 
     }

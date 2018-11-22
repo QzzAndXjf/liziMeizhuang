@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Vuex from 'vuex'
 // import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
+Vue.use(Vuex)
 
 import Login  from '../components/MyMsg/login.vue'
 import Zhuce  from '../components/MyMsg/zhuce.vue'

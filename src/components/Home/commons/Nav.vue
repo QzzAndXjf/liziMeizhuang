@@ -1,4 +1,4 @@
-<template>
+	<template>
 	<!-- Swiper -->
 	<div>
 		<div id="navbar">
@@ -36,7 +36,7 @@
     		selInit:"1",
     		selectedId: 0,
     		options: {
-		        activeColor: '#1d98bd'
+		    activeColor: '#1d98bd'
 		        // 可在这里指定labelKey为你数据里文字对应的字段名
 		      },
     	};

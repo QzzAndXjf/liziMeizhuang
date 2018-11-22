@@ -11,7 +11,7 @@
             
 			<ul>
 				<li class="item_0" v-for="(item,index) in ribenDate" :key="index">
-                <a href="https://m.lizi.com/product-455555552.html" :data-itemnum="item.itemNum">
+                <a :data-itemnum="item.itemNum" @click="addCar(item)">
                     <p class="pic">
                     	<img :src="'https://images.weserv.nl/?url='+item.picUrl">
                     </p>
@@ -1114,6 +1114,12 @@
         },
         gohome(){
             this.$qzzrouter.push("/");
+        },
+        addCar(item){
+            var storage = window.localStorage;
+            storage.setItem("good",JSON.stringify(item));
+            this.$store.commit('incrementShopcar');
+            this.$store.commit('addGoodsInCar');
         }	
 	  	
 	},
