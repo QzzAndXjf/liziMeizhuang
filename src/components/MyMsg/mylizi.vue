@@ -31,69 +31,63 @@
       <div> 
         <ul class="pay">
           <li>
-            <a href="">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               <p>待付款</p>
-            </a>
           </li>
           <li>
-            <a href="">
               <i class="fa fa-truck" aria-hidden="true"></i>
               <p>待发货</p>
-            </a>
           </li>
           <li>
-            <a href="">
               <i class="fa fa-dropbox" aria-hidden="true"></i>
               <p>待收货</p>
-            </a>
           </li>
         </ul>
       </div>
 
       <div class="mylist">
         <ul>
-          <li>
-            <a href="">
+          <li @click="toPay">
+            <!-- <a href=""> -->
               <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
               <span>我的订单</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-location-arrow" aria-hidden="true"></i>
               <span>我的地址</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-money" aria-hidden="true"></i>
               <span>我的优惠券</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-star-o" aria-hidden="true"></i>
               <span>我的收藏</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
               <span>我的消息</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-book" aria-hidden="true"></i>
               <span>常见购物问题</span>
-            </a>
+            <!-- </a> -->
           </li>
           <li>
-            <a href="">
+            <!-- <a href=""> -->
               <i class="fa fa-phone" aria-hidden="true"></i> 
               <span>联系平台</span>
-            </a>
+            <!-- </a> -->
           </li>
         </ul>
       </div>
@@ -124,6 +118,9 @@ export default {
     },
     goHome(){
       this.$router.push('/home/HomeBody')
+    },
+    toPay(){
+      this.$router.push('/pay')
     }
   }
 }
@@ -220,7 +217,6 @@ export default {
   .padding(20,0,0,0);
   .margin(0,0,20,0);
   li{
-
     .w(125);
     .h(67);
     text-align: center;
@@ -237,7 +233,6 @@ export default {
 .mylist{
   ul{
     li{
-      a{
         display:flex;
         .h(60);
         .padding(10,10,10,10);
@@ -258,7 +253,6 @@ export default {
           .fs(14);
           color:#333;
         }
-      }
     }
   }
 }
