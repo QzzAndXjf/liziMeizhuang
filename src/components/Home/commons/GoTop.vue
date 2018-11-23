@@ -13,7 +13,12 @@
     <div id="box" v-show='show'>
       <div>
         <i class="fa fa-shopping-bag" aria-hidden="true" @click="goShopCar"></i>
+
+        <transition
+            leave-active-class="animated fadeOut"
+            enter-active-class="animated slideInLeft">
         <span>{{this.$store.state.shopcarNum}}</span>
+      </transition>
       </div>
     </div>
 
@@ -28,7 +33,7 @@ export default{
     data(){
     	return {
          show:false,
-         distance:200
+         distance:200,
     	}
     },
     methods:{
@@ -46,7 +51,7 @@ export default{
     },
     created(){
       window.addEventListener('scroll',()=>{
- 
+
         let y=window.scrollY
         if (y>=this.distance) {
           if (this.show==false) {

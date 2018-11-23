@@ -154,7 +154,7 @@ export default {
 }
 .bg{
   .h(160);
-  background: url(../../assets/logo2.png) no-repeat center;
+  background: url('../../assets/logo2.png') no-repeat center;
   background-size: cover;
   .tm_bg{
     display: flex;

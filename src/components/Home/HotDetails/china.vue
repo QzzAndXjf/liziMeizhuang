@@ -11,14 +11,14 @@
             
 			<ul>
 				<li class="item_0" v-for="(item,index) in ribenDate" :key="index">
-                <a :data-itemnum="item.itemNum" @click="addCar(item)">
-                    <p class="pic">
-                    	<img :src="'https://images.weserv.nl/?url='+item.picUrl">
-                    </p>
-                    <h3>{{item.name}}</h3>
-                    <p class="price">￥<em>{{item.nowPrice}}</em><span class="buybtn">立即购买</span></p>
-                </a>
-            </li>
+                    <a :data-itemnum="item.itemNum" @click="addCar(item)">
+                        <p class="pic">
+                        	<img :src="'https://images.weserv.nl/?url='+item.picUrl">
+                        </p>
+                        <h3>{{item.name}}</h3>
+                        <p class="price">￥<em>{{item.nowPrice}}</em><span class="buybtn">立即购买</span></p>
+                    </a>
+                </li>
 			</ul>	
 		</div>
 
@@ -1117,8 +1117,9 @@
         },
         addCar(item){
             var storage = window.localStorage;
-            storage.setItem("good",JSON.stringify(item));
-            this.$store.commit('incrementShopcar');
+            let goodObj = Object.assign(item,{num:1})
+            storage.setItem("good",JSON.stringify(goodObj));
+            // this.$store.commit('incrementShopcar');
             this.$store.commit('addGoodsInCar');
         },
         // removeAaary(_arr, _obj) {
