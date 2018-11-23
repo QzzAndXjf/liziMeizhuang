@@ -73,8 +73,11 @@ export default {
             this.$axios.post('./api/zhuce/check',qs.stringify({name:this.user,pass:this.pass}))
             .then((res)=>{
               if(res.data.msg =='查询成功'){
-                alert('登录')
-                this.$router.push({name:'mylizi',params:{user:this.user}});
+                alert('登录成功');
+                 var storage = window.localStorage;
+                 storage.setItem("uname",this.user);
+                 this.$store.commit('setUname');
+                 this.$router.push({name:'mylizi',params:{user:this.user}});
               }else{
                 Toast({
                   message: '登录失败',

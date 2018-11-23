@@ -24,22 +24,9 @@ import  Axios from 'axios'
 Vue.prototype.$axios=Axios
 
 import qs from 'qs';
-Vue.prototype.$qs=qs
-
-
+Vue.prototype.$qs=qs //qs 是一个增加了一些安全性的查询字符串解析和序列化字符串的库。
 
 Vue.config.productionTip = false
-
-
-// import  Axios from 'axios'
-// Vue.prototype.$axios=Axios  // 使用的时候  this.$axios
-
-// import MintUI from 'mint-ui'
-// import 'mint-ui/lib/style.css'
-// Vue.use(MintUI)
-
-
-
 
 /* eslint-disable no-new */
 new Vue({

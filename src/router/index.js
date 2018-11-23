@@ -9,6 +9,7 @@ Vue.use(Vuex)
 import Login  from '../components/MyMsg/login.vue'
 import Zhuce  from '../components/MyMsg/zhuce.vue'
 import Mylizi  from '../components/MyMsg/mylizi.vue'
+import Pay from '../components/MyMsg/pay.vue'
 
 
 import Home  from '../components/Home/Home.vue'
@@ -39,6 +40,7 @@ const router = new Router({
 	  { path: '/login', component: Login ,name:'login'},
 	  { path: '/zhuce', component: Zhuce,name:'zhuce' },
 	  { path: '/mylizi', component: Mylizi,name:'mylizi' },
+	  { path: '/pay', component: Pay,name:'pay' },
 	  { path: '/home', component: Home,name:'home' },
 	  { path: '/details', component: Details,name:'details' },
 	  { path: '/shopcar', component: ShopCar,name:'shopcar' },

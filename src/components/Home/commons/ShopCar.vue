@@ -9,25 +9,25 @@
 		<div class="shop_line"> 
 			<div class="allShopItems"> 
 				<ul>
-					<li>
+					<li v-for="(item,index) in shopcarData" :key="index">
 						<p class="hd">
 							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 							<!-- <i class="fa fa-check-circle" aria-hidden="true"></i> -->
-							<span>点名</span>
+							<span>艾斯臣旗舰店</span>
 							<i class="fa fa-commenting" aria-hidden="true"></i>
 						</p>
 						<div class="bd">
 							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-							<img src="../../../../static/img/details01.png" alt="">
+							<img :src="'https://images.weserv.nl/?url='+item.picUrl" alt="">
 							<div>
 								<p>
-									<span>893014314343</span>
+									<span>{{item.name}}</span>
 									<i class="fa fa-trash" aria-hidden="true"></i>
 								</p>
 								<div class="num">
 									<p>
-										<span>规格</span>
-										<span class="price">￥<em>999</em></span>
+										<span>规格：</span>
+										<span class="price">￥<em>{{item.liziPrice}}</em></span>
 									</p>
 									<div>
 										<i class="fa fa-minus" aria-hidden="true"></i>
@@ -65,7 +65,7 @@
 		name:"ShopCar",
 		data(){
 			return {
-				
+				shopcarData:[]
 			}
 		},
 		methods:{
@@ -75,11 +75,15 @@
     		gohome(){
     			console.log(444)
             	this.$qzzrouter.push("/");
-        	}	
+        	},
+        	getShopcarData(){
+
+        		this.shopcarData = 	this.$store.state.carMsg;
+        	}
 		},
 			
 		created(){
-		      
+		      this.getShopcarData();
     	},
 	}
 </script>
@@ -175,6 +179,7 @@
 		  				>p{
 		  					width: 100%;
 		  					.padding(0,5,0,5);
+		  					.fs(12);
 		  					i{
 		  						float: right;
 		  						.fs(22);
