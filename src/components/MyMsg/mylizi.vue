@@ -16,7 +16,7 @@
             <div class="pic">
               <img src="../../assets/face.png" height="80" width="80" alt="" />
             </div>
-            <p>{{this.$store.state.uname}}</p>
+            <p v-model="username">{{username}}</p>
             <span>0/298</span>  
           </div>
     
@@ -93,7 +93,7 @@
       </div>
 
       <div class="quit">
-        <p>退出登录</p>
+        <p @click="tuichu">退出登录</p>
       </div>
 
       <div class="bottom">
@@ -110,7 +110,9 @@ export default {
   name: 'Mylizi',
   components:{},
   data(){
-    return{}
+    return{
+      username:''
+    }
   },
   methods:{
     back(){
@@ -121,8 +123,18 @@ export default {
     },
     toPay(){
       this.$router.push('/pay')
+    },
+    tuichu(){
+      localStorage.removeItem("uname");
+      this.$router.push('/home/HomeBody');
     }
-  }
+    
+  },
+  created(){
+      var storage = window.localStorage;
+      this.username = storage.getItem("uname");
+      console.log(this.username)
+    }
 }
 </script>
 
