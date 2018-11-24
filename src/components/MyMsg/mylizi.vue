@@ -32,22 +32,22 @@
       <div> 
         <ul class="pay">
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               <p>待付款</p>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-truck" aria-hidden="true"></i>
-              <!-- <p>待发货</p> -->
-            <!-- </a> -->
+              <p>待发货</p>
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-dropbox" aria-hidden="true"></i>
               <p>待收货</p>
-            <!-- </a> -->
+            </a>
           </li>
         </ul>
       </div>
@@ -55,46 +55,46 @@
       <div class="mylist">
         <ul>
           <li @click="toPay">
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
               <span>我的订单</span>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-location-arrow" aria-hidden="true"></i>
               <span>我的地址</span>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-money" aria-hidden="true"></i>
               <span>我的优惠券</span>
-            <!-- </a> -->
+            </a>
           </li>
-          <li>
-            <!-- <a href=""> -->
+          <li >
+            <a href="javascript:;" @click="toCollect">
               <i class="fa fa-star-o" aria-hidden="true"></i>
               <span>我的收藏</span>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
               <span>我的消息</span>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-book" aria-hidden="true"></i>
               <span>常见购物问题</span>
-            <!-- </a> -->
+            </a>
           </li>
           <li>
-            <!-- <a href=""> -->
+            <a href="javascript:;">
               <i class="fa fa-phone" aria-hidden="true"></i> 
               <span>联系平台</span>
-            <!-- </a> -->
+            </a>
           </li>
         </ul>
       </div>
@@ -130,6 +130,9 @@ export default {
     },
     toPay(){
       this.$router.push('/pay')
+    },
+    toCollect(){
+      this.$router.push('/collect')
     },
     tuichu(){
       localStorage.removeItem("uname");
@@ -252,6 +255,7 @@ export default {
 .mylist{
   ul{
     li{
+      a{
         display:flex;
         .h(60);
         .padding(10,10,10,10);
@@ -272,6 +276,8 @@ export default {
           .fs(14);
           color:#333;
         }
+      }
+        
     }
   }
 }
