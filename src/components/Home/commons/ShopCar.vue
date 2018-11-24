@@ -31,10 +31,9 @@
 									</p>
 									<div>
 										<i class="fa fa-minus" aria-hidden="true"></i>
-										<input type="text">
+										<input type="text" :value="item.num">
 										<i class="fa fa-plus" aria-hidden="true"></i>	
 									</div>
-									
 								</div>
 							</div>
 						</div>
@@ -50,7 +49,7 @@
 				<span>
 					共有<em>0</em>件商品
 				</span>
-				<p>总计：<span>￥<em>77</em></span></p>
+				<p>总计：<span>￥<em>0.00</em></span></p>
 			</div>
 			<div class="jiesuan">
 				去结算
@@ -69,6 +68,12 @@
 			}
 		},
 		methods:{
+			addNum(){
+				alert(12)
+				// let num = this.$emit("Num");
+				// num++;
+				// console.log(num);
+			},
 			goBack(){
     			router.go(-1);
     		},
@@ -77,8 +82,13 @@
             	this.$qzzrouter.push("/");
         	},
         	getShopcarData(){
+        		var storage = window.localStorage;
+      			let goodsArr = JSON.parse(storage.getItem("goods"));
 
-        		this.shopcarData = 	this.$store.state.carMsg;
+        		this.shopcarData = 	goodsArr;
+        	},
+        	changeNum(num){
+        		return num;
         	}
 		},
 			
@@ -242,6 +252,7 @@
 		.bottom{
 			.w(375);
 			position: fixed;
+			background: #fff;
 			bottom:0;
 			border: 1px solid #ccc;
 			.h(50);

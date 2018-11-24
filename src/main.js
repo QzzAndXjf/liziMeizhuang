@@ -8,9 +8,8 @@ Vue.prototype.$qzzrouter=router
 
 import './styls/reset.less'
 
-import Mint from 'mint-ui';
-
 import 'mint-ui/lib/style.css';
+import Mint from 'mint-ui';
 Vue.use(Mint);
 
 import VueResource from 'vue-resource'

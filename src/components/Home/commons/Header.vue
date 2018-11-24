@@ -18,6 +18,7 @@ export default{
     	goMy(){
             var storage = window.localStorage;
             let uname = storage.getItem("uname");
+
     		if(uname){
     			this.$router.push("/mylizi");
     		}else {

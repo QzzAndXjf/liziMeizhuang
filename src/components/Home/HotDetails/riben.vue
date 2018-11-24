@@ -1116,8 +1116,9 @@
         },
         addCar(item){
             var storage = window.localStorage;
-            storage.setItem("good",JSON.stringify(item));
-            this.$store.commit('incrementShopcar');
+            let goodObj = Object.assign(item,{num:1})
+            storage.setItem("good",JSON.stringify(goodObj));
+            // this.$store.commit('incrementShopcar');
             this.$store.commit('addGoodsInCar');
         }   
 	  	

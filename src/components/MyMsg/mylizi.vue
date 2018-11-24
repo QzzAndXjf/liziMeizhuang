@@ -100,7 +100,7 @@
       </div>
 
       <div class="quit">
-        <p @click="quit">退出登录</p>
+        <p @click="tuichu">退出登录</p>
       </div>
 
       <div class="bottom">
@@ -118,7 +118,6 @@ export default {
   components:{},
   data(){
     return{
-      mylist:[{name:""}],
       username:''
     }
   },
@@ -132,16 +131,16 @@ export default {
     toPay(){
       this.$router.push('/pay')
     },
-    quit(){
-      this.$store.commit('setUname',"");
-      console.log(123)
-    }
+    tuichu(){
+      localStorage.removeItem("uname");
+      this.$router.push('/home/HomeBody');
+    }  
   },
   created(){
-    var storage = window.localStorage;
-    let uname = storage.getItem("uname");
-    this.username = uname;
-  }
+      var storage = window.localStorage;
+      this.username = storage.getItem("uname");
+      console.log(this.username)
+    }
 }
 </script>
 
@@ -173,7 +172,7 @@ export default {
 }
 .bg{
   .h(160);
-  background: url(../../assets/logo2.png) no-repeat center;
+  background: url('../../assets/logo2.png') no-repeat center;
   background-size: cover;
   .tm_bg{
     display: flex;
