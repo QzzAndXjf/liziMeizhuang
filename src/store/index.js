@@ -21,7 +21,6 @@ const store = new Vuex.Store({
     setUname(state){
     	var storage = window.localStorage;
     	state.uname = storage.getItem("uname");
-    	console.log(state.uname);
     	
     }
   }

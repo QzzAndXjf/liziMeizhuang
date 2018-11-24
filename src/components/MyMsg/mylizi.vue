@@ -16,7 +16,8 @@
             <div class="pic">
               <img src="../../assets/face.png" height="80" width="80" alt="" />
             </div>
-            <p>{{this.$store.state.uname}}</p>
+            <p v-model="username">{{username}}</p>
+            <!-- <p>{{this.$store.state.uname}}</p> -->
             <span>0/298</span>  
           </div>
     
@@ -31,16 +32,22 @@
       <div> 
         <ul class="pay">
           <li>
+            <!-- <a href=""> -->
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               <p>待付款</p>
+            <!-- </a> -->
           </li>
           <li>
+            <!-- <a href=""> -->
               <i class="fa fa-truck" aria-hidden="true"></i>
-              <p>待发货</p>
+              <!-- <p>待发货</p> -->
+            <!-- </a> -->
           </li>
           <li>
+            <!-- <a href=""> -->
               <i class="fa fa-dropbox" aria-hidden="true"></i>
               <p>待收货</p>
+            <!-- </a> -->
           </li>
         </ul>
       </div>
@@ -93,7 +100,7 @@
       </div>
 
       <div class="quit">
-        <p>退出登录</p>
+        <p @click="quit">退出登录</p>
       </div>
 
       <div class="bottom">
@@ -110,7 +117,10 @@ export default {
   name: 'Mylizi',
   components:{},
   data(){
-    return{}
+    return{
+      mylist:[{name:""}],
+      username:''
+    }
   },
   methods:{
     back(){
@@ -121,7 +131,16 @@ export default {
     },
     toPay(){
       this.$router.push('/pay')
+    },
+    quit(){
+      this.$store.commit('setUname',"");
+      console.log(123)
     }
+  },
+  created(){
+    var storage = window.localStorage;
+    let uname = storage.getItem("uname");
+    this.username = uname;
   }
 }
 </script>
@@ -217,6 +236,7 @@ export default {
   .padding(20,0,0,0);
   .margin(0,0,20,0);
   li{
+
     .w(125);
     .h(67);
     text-align: center;
