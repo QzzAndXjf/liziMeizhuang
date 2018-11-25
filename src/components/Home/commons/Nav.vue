@@ -1,10 +1,9 @@
 	<template>
 	<!-- Swiper -->
 	<div>
-		<div id="navbar">
+<!-- 		<div id="navbar">
 		  <div class="swiper-container">
 		    <div class="swiper-wrapper" id="nav">
-		      <!-- 动态路由的切换 -->
 			  <router-link :class="swiper_slide" tag="div" to="HomeBody" active-class="sel">丽子</router-link>
 		      <router-link 
 		      v-for="(item,index) in navlist" :key="index" 
@@ -16,7 +15,27 @@
 
 		    </div>
 		  </div>
-		</div>
+		</div> -->
+
+			<!-- Swiper -->
+	  <div class="swiper-container">
+	    <div class="swiper-wrapper">
+	      <div class="swiper-slide">Slide 1</div>
+	      <div class="swiper-slide">Slide 2</div>
+	      <div class="swiper-slide">Slide 3</div>
+	      <div class="swiper-slide">Slide 4</div>
+	      <div class="swiper-slide">Slide 5</div>
+	      <div class="swiper-slide">Slide 6</div>
+	      <div class="swiper-slide">Slide 7</div>
+	      <div class="swiper-slide">Slide 8</div>
+	      <div class="swiper-slide">Slide 9</div>
+	      <div class="swiper-slide">Slide 10</div>
+	    </div>
+	    <!-- Add Arrows -->
+	    <div class="swiper-button-next"></div>
+	    <div class="swiper-button-prev"></div>
+	  </div>
+
 
 	</div>
 	
