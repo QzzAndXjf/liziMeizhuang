@@ -50,7 +50,7 @@ const store = new Vuex.Store({
     },
     myCollect(state){
       var storage = window.localStorage;
-      let goods = JSON.parse(storage.getItem("mygoods"));
+      let goods = JSON.parse(storage.getItem("my"));
       if(state.mygoods.length==0){
         state.mygoods.push(goods);
         storage.setItem("mygoods",JSON.stringify(state.mygoods));
@@ -61,14 +61,14 @@ const store = new Vuex.Store({
         });
         if(panduan.indexOf(true) == -1){ 
           state.mygoods.push(goods);
-          storage.setItem("goods",JSON.stringify(state.mygoods));
-          state.mygoods = JSON.parse(storage.getItem("goods"));
+          storage.setItem("mygoods",JSON.stringify(state.mygoods));
+          state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(state.mygoods);
         }else{
           let idx = panduan.indexOf(true);
-          let currendGood = JSON.parse(storage.getItem("goods"));
-          storage.setItem("goods",JSON.stringify(currendGood));
-          state.mygoods = JSON.parse(storage.getItem("goods"));
+          let currendGood = JSON.parse(storage.getItem("mygoods"));
+          storage.setItem("mygoods",JSON.stringify(currendGood));
+          state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(currendGood);
         }
       }
