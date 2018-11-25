@@ -11,6 +11,7 @@ import Zhuce  from '../components/MyMsg/zhuce.vue'
 import Mylizi  from '../components/MyMsg/mylizi.vue'
 import Pay from '../components/MyMsg/pay.vue'
 import Collect from '../components/MyMsg/collect.vue'
+import Goodlist from '../components/MyMsg/goodlist.vue'
 
 
 import Home  from '../components/Home/Home.vue'
@@ -43,6 +44,7 @@ const router = new Router({
 	  { path: '/mylizi', component: Mylizi,name:'mylizi' },
 	  { path: '/pay', component: Pay,name:'pay' },
 	  { path: '/collect', component: Collect,name:'collect' },
+	  { path: '/goodlist', component: Goodlist,name:'goodlist' },
 	  { path: '/home', component: Home,name:'home' },
 	  { path: '/details', component: Details,name:'details' },
 	  { path: '/shopcar', component: ShopCar,name:'shopcar' },

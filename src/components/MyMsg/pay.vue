@@ -2,7 +2,7 @@
   <div id="pay">
       <div class="header">
           <i class="fa fa-arrow-left" aria-hidden="true" @click="back"></i>
-          <span>我的丽子</span>
+          <span>我的订单</span>
           <i class="fa fa-home" aria-hidden="true" @click="goHome"></i>
       </div>
    
@@ -15,7 +15,8 @@
         </ul>
       </div>
 
-      <div class="goodsContent">
+      <Goodlist></Goodlist>
+      <div class="goodsContent" v-if="show">
         <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
         <p>暂无订单信息</p>
       </div>
@@ -30,13 +31,15 @@
 
 <script>
 import Vue from 'vue';
+import Goodlist from './goodlist.vue';
 export default {
   name: 'Pay',
-  components:{},
+  components:{Goodlist},
   data(){
     return{
       goodslist:['全部','待付款','待发货','待收货'],
-      selInit:'全部'
+      selInit:'全部',
+      show:true
     }
   },
   methods:{
@@ -48,7 +51,19 @@ export default {
       },
       toggle(item){
         this.selInit=item
+      },
+      noshow(){
+        var storage = window.localStorage;
+        let goodObj = JSON.parse(storage.getItem("good"));
+        if(goodObj){
+          console.log(123)
+          this.show = false;
+        }
       }
+
+    },
+    created(){
+      this.noshow();
     }
 }
 </script>
