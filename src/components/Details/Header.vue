@@ -2,7 +2,7 @@
 	<div class="header">
 		  <i class="fa fa-arrow-left" aria-hidden="true" @click="goBack"></i>
           <span>商品详情</span>
-          <i class="fa fa-home" aria-hidden="true"></i>
+          <i class="fa fa-home" aria-hidden="true" @click="goHome"></i>
 	</div>
 </template>
 
@@ -18,7 +18,10 @@ export default{
     methods:{
     	goBack(){
     		router.go(-1);
-    	}
+    	},
+        goHome(){
+            router.push('/');
+        }
     	
     }
     

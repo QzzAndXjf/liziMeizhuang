@@ -8,7 +8,7 @@
                 </p>
                 <div class="product_name">
                     <span>{{detailsMsg.title}}</span>
-                    <a href="javascript:;" class="fav_btn" id="fav_btn"><i class="fa fa-star-o" aria-hidden="true"></i><span>收藏</span></a>
+                    <a href="javascript:;" :class="fav_btn" id="fav_btn" @click="collect"><i class="fa fa-star-o" aria-hidden="true"></i><span v-model="haha">{{haha}}</span></a>
                 </div>
              </div>
              <div class="price">
@@ -88,14 +88,17 @@ export default{
         detailsMsg:[],
         currentGood:[],
         detailsImg:[],
+        fav_btn:'',
+        haha:'收藏'
         
       };
     	
     },
     methods:{
         getDetails(){
+            console.log("getDs")
+                 
             this.detailsMsg = this.$route.query;
-            // console.log(this.detailsMsg);
             this.DetailsData.forEach( (item, index)=>{console.log(this.detailsImg);
                 if(item.id == this.detailsMsg.id){
                     this.currentGood = item;
@@ -103,12 +106,25 @@ export default{
                     // this.detailsImg = JSON.parse(this.currentGood.goodDescImg);
                     console.log(this.detailsImg);
                     // this.detailsImg = this.currentGood.goodDescImg;
-                    console.log(this.detailsImg);
+                    console.log(this.detailsData);
                 }
-            });
-            
-            
+            })   
         },
+        collect(){    
+            var storage = window.localStorage;
+            let uname = storage.getItem("uname");
+            storage.setItem("mygoods",JSON.stringify(this.detailsMsg))
+            this.$store.commit('myCollect');
+            console.log(this.detailsMsg)
+
+            if(uname){
+                this.fav_btn = "shoucang";
+                this.haha = "已收藏"
+
+            }else{
+                alert('请先登录');
+            }
+        }
         
     },
     created(){
@@ -168,6 +184,22 @@ export default{
                 }
                 >span{
                     .fs(12);
+                }
+            }
+            .shoucang{
+                flex:1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                color: #fff;
+                i{
+                    color:red;
+                    .fs(22);
+                }
+                >span{
+                    .fs(12);
+                    color: red;
                 }
             }
         }

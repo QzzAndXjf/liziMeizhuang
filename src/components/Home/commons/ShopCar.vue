@@ -84,6 +84,7 @@
         	getShopcarData(){
         		var storage = window.localStorage;
       			let goodsArr = JSON.parse(storage.getItem("goods"));
+      			console.log(goodsArr)
 
         		this.shopcarData = 	goodsArr;
         	},

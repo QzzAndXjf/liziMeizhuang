@@ -16,7 +16,10 @@ export default{
     },
     methods:{
     	goMy(){
-    		if(this.$store.state.uname){
+            var storage = window.localStorage;
+            let uname = storage.getItem("uname");
+
+    		if(uname){
     			this.$router.push("/mylizi");
     		}else {
     			alert("您还未登陆");

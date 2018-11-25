@@ -8,6 +8,7 @@ const store = new Vuex.Store({
     shopcarNum:0,
     carMsg:[],
     uname:"",
+    mygoods:[]
   },
   mutations: {
     // incrementShopcar (state) {
@@ -44,12 +45,17 @@ const store = new Vuex.Store({
             // state.carMsg.push(goodObj);
             
           }
-      }
+
+      } 
+    },
+    myCollect(state){
+      var storage = window.localStorage;
+      let goods = JSON.parse(storage.getItem("mygoods"));
+      
     },
     setUname(state){
     	var storage = window.localStorage;
     	state.uname = storage.getItem("uname");
-    	console.log(state.uname);
     	
     }
   }
