@@ -22,6 +22,7 @@
 	
 </template>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
 <script>
 	import Axios from 'axios';
 	import Swiper from 'swiper';
@@ -102,6 +103,13 @@
             slidesPerView:'auto',
             freeMode: true
 		  });
+
+
+		var mySwiper = new Swiper('.swiper-container',{
+			freeMode : true,
+		})
+
+
 
 	    }
 
