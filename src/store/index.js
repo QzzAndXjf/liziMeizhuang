@@ -17,7 +17,7 @@ const store = new Vuex.Store({
     	var storage = window.localStorage;
       let goodObj = JSON.parse(storage.getItem("good"));
       console.log(state.carMsg.length);
-      if(state.carMsg.length == 0){
+      if(JSON.parse(storage.getItem("goods")).length == 0){
           state.shopcarNum++;
           state.carMsg.push(goodObj);
           storage.setItem("goods",JSON.stringify(state.carMsg));
@@ -45,8 +45,6 @@ const store = new Vuex.Store({
             
           }
       }
-      
-    	
     },
     setUname(state){
     	var storage = window.localStorage;
