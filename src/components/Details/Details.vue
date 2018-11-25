@@ -113,14 +113,18 @@ export default{
         collect(){    
             var storage = window.localStorage;
             let uname = storage.getItem("uname");
-            storage.setItem("mygoods",JSON.stringify(this.detailsMsg))
-            this.$store.commit('myCollect');
+            let goods = this.detailsMsg;
+            let cunzi = storage.getItem("mygoods");
+            
             console.log(this.detailsMsg)
 
             if(uname){
+                
                 this.fav_btn = "shoucang";
-                this.haha = "已收藏"
-
+                this.haha = "已收藏";
+                storage.setItem("mygoods",JSON.stringify(goods));
+                this.$store.commit('myCollect');
+                  
             }else{
                 alert('请先登录');
             }

@@ -10,15 +10,26 @@
         <ul>
           <li v-for="(item,index) in mygoodslist" :key="index">
             <img :src="'https://images.weserv.nl/?url='+item.pic" alt="" />
+            <div class="desc">
+              <p class="name">
+                {{item.title}}
+                <i class="fa fa-trash-o" aria-hidden="true" @click="clear"></i>
+              </p>
+              <p class="price">￥{{item.price}}.0</p>
+              <p class="salesCount">
+                {{item.salesCount}}已经购买 
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              </p>     
+            </div> 
           </li>
         </ul>
       </div>
      
 
-      <!-- <div class="goodsContent">
+      <div class="goodsContent" v-if="show">
         <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
         <p>暂无收藏信息</p>
-      </div> -->
+      </div>
 
       <div class="bottom">
           <p>丽子客服: 123456768</p>
@@ -35,7 +46,8 @@ export default {
   components:{},
   data(){
     return{
-      mygoodslist:[]
+      mygoodslist:[],
+      show:true
     }
   },
   methods:{
@@ -47,20 +59,31 @@ export default {
       },
       getMygoods(){
         var storage = window.localStorage;
-        this.mygoodslist = [JSON.parse(storage.getItem("mygoods"))];
-      console.log(this.mygoodslist)
+        this.mygoodslist = JSON.parse(storage.getItem("mygoods"));
+        console.log(this.mygoodslist)
 
+      },
+      clear(){
+        localStorage.removeItem("mygoods");
+      },
+      noshow(){
+        var storage = window.localStorage;
+        let goods = JSON.parse(storage.getItem("mygoods"));
+        if(goods){
+          this.show = false;
+        }
       }
     },
     created(){
       this.getMygoods();
+      this.noshow();
     }
 }
 </script>
 
 <style lang="less" scoped>
 @import url('../../styls/main.less');
-#mylizi{
+#collect{
   background: #fff;
 }
 .header{
@@ -98,6 +121,65 @@ export default {
     .margin(20,0,0,0);
     .fs(14);
     color:#9a9a9a;
+  }
+}
+.list{
+  ul{
+      background:#fff;
+    li{
+      display: flex;
+      .h(120);
+      .padding(10,10,10,10);
+      box-sizing:border-box;
+      img{
+        .w(80);
+        .h(80);
+      }
+      .desc{
+        .name{
+          .fs(14);
+          .margin(0,0,15,0);
+          position:relative;
+          i{
+            position: absolute;
+            right:0;
+            bottom:-20px;
+            .w(34);
+            .h(34);
+            .lh(34);
+            .fs(20);
+            text-align: center;
+            background: #fff;
+            border-radius:20px;
+
+          }
+        }
+        .price{
+          .fs(16);
+          border-bottom: 1px solid #333;
+        }
+        .salesCount{
+          .fs(14);
+          color:#ccc;
+          position:relative;
+          i{
+            position: absolute;
+            right:0;
+            top:-17px;
+            .w(34);
+            .h(34);
+            .lh(34);
+            text-align: center;
+            background: #333;
+            color: #ccc;
+            border-radius:20px;
+
+          }
+        }
+        
+      }
+      
+    }
   }
 }
 .bottom{  
