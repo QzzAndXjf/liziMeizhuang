@@ -17,7 +17,7 @@
               </p>
               <p class="price">￥{{item.price}}.0</p>
               <p class="salesCount">
-                {{item.salesCount}}已经购买 
+                {{item.salesCount}}人已经购买 
                 <i class="fa fa-shopping-bag" aria-hidden="true"></i>
               </p>     
             </div> 
@@ -63,8 +63,14 @@ export default {
         console.log(this.mygoodslist)
 
       },
-      clear(){
-        localStorage.removeItem("mygoods");
+      clear(e){
+
+        var storage = window.localStorage;
+        let goodsArr = JSON.parse(storage.getItem("mygoods"));
+        
+        console.log(e.target.parentNode.parentNode.parentNode)
+        
+
       },
       noshow(){
         var storage = window.localStorage;

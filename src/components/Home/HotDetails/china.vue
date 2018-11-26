@@ -1118,9 +1118,15 @@
         addCar(item){
             var storage = window.localStorage;
             let goodObj = Object.assign(item,{num:1})
-            storage.setItem("good",JSON.stringify(goodObj));
-            // this.$store.commit('incrementShopcar');
-            this.$store.commit('addGoodsInCar');
+            let uname = storage.getItem("uname");
+            if(uname){
+                 storage.setItem("good",JSON.stringify(goodObj));
+                // this.$store.commit('incrementShopcar');
+                this.$store.commit('addGoodsInCar');
+            }else{
+                alert('请先登录');
+            }
+           
         },
         // removeAaary(_arr, _obj) {
         //     var length = _arr.length;
