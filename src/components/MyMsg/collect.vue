@@ -60,8 +60,11 @@ export default {
       },
       getMygoods(){
         var storage = window.localStorage;
-        this.mygoodslist = JSON.parse(storage.getItem("mygoods"));
-        console.log(this.mygoodslist)
+      
+          console.log(123)
+          this.mygoodslist = JSON.parse(storage.getItem("mygoods"));
+          console.log(this.mygoodslist)
+        
 
       },
       clear(id){
@@ -70,7 +73,7 @@ export default {
         
         let goodsArr = JSON.parse(storage.getItem("mygoods"));
 
-            for(var i=0;i<goodsArr.length-1;i++){
+            for(var i=0;i<goodsArr.length;i++){
               if(goodsArr[i].id==id){
                 goodsArr.splice(i,1);
                 break;
@@ -78,12 +81,12 @@ export default {
           }
          
          storage.setItem("mygoods",JSON.stringify(goodsArr));
-          this.$store.commit('myCollect'); 
+        this.$store.commit('myCollect'); 
            
           console.log(goodsArr) 
           this.mygoodslist = goodsArr
-          if(goodsArr.length==1){
-            storage.setItem("mygoods",'');
+          if(goodsArr.length==0){
+            storage.removeItem("mygoods");
             this.mygoodslist = ''
           }
 

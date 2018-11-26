@@ -54,9 +54,8 @@ export default {
       },
       noshow(){
         var storage = window.localStorage;
-        let goodObj = JSON.parse(storage.getItem("good"));
+        let goodObj = JSON.parse(storage.getItem("goods"));
         if(goodObj){
-          console.log(123)
           this.show = false;
         }
       }

@@ -15,7 +15,7 @@
                         <div>
                             <p>
                                 <span>{{item.name}}</span>
-                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                <i class="fa fa-trash" aria-hidden="true" @click="clear(item.id)"></i>
                             </p>
                             <div class="num">
                                 <p>
@@ -54,12 +54,35 @@ export default{
         getShopcarData(){
             var storage = window.localStorage;
             let goodsArr = JSON.parse(storage.getItem("goods"));
-            console.log(goodsArr)
-
             this.goodlist =  goodsArr;
+            // console.log(this.goodlist[0].id)
         },
-        changeNum(num){
-            return num;
+        // changeNum(num){
+        //     return num;
+        // },
+        clear(currentId){
+        var storage = window.localStorage;
+        if(storage.getItem("goods")!=''){
+            let arr = JSON.parse(storage.getItem("goods"));
+
+                for(var i=0;i<arr.length;i++){
+                  if(arr[i].id==currentId){
+                    arr.splice(i,1);
+                    break;
+                  }
+              }
+              console.log(arr)
+             
+             storage.setItem("goods",JSON.stringify(arr));
+            this.$store.commit('addGoodsInCar'); 
+            this.goodlist = arr;
+              if(arr.length==0){
+                storage.setItem("goods",'');
+                this.goodlist = ''
+              }
+
+            } 
+
         }
     },
     created(){
