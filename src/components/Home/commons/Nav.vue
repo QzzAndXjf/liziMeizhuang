@@ -1,7 +1,7 @@
 	<template>
 	<!-- Swiper -->
 	<div>
-<!-- 		<div id="navbar">
+		<div id="navbar">
 		  <div class="swiper-container">
 		    <div class="swiper-wrapper" id="nav">
 			  <router-link :class="swiper_slide" tag="div" to="HomeBody" active-class="sel">丽子</router-link>
@@ -15,10 +15,10 @@
 
 		    </div>
 		  </div>
-		</div> -->
+		</div>
 
 			<!-- Swiper -->
-	  <div class="swiper-container">
+	  <!-- <div class="swiper-container">
 	    <div class="swiper-wrapper">
 	      <div class="swiper-slide">Slide 1</div>
 	      <div class="swiper-slide">Slide 2</div>
@@ -30,11 +30,11 @@
 	      <div class="swiper-slide">Slide 8</div>
 	      <div class="swiper-slide">Slide 9</div>
 	      <div class="swiper-slide">Slide 10</div>
-	    </div>
+	    </div> -->
 	    <!-- Add Arrows -->
-	    <div class="swiper-button-next"></div>
+	    <!-- <div class="swiper-button-next"></div>
 	    <div class="swiper-button-prev"></div>
-	  </div>
+	  </div> -->
 
 
 	</div>

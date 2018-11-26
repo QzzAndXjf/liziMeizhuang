@@ -114,7 +114,7 @@ export default{
             var storage = window.localStorage;
             let uname = storage.getItem("uname");
             let goods = this.detailsMsg;
-            let cunzi = storage.getItem("mygoods");
+            // let cunzi = storage.getItem("mygoods");
             
             console.log(this.detailsMsg)
 
