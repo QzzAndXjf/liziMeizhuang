@@ -13,7 +13,7 @@
             <div class="desc">
               <p class="name">
                 {{item.title}}
-                <i class="fa fa-trash-o" aria-hidden="true" @click="clear"></i>
+                <i class="fa fa-trash-o" aria-hidden="true" @click="clear(item.id)"></i>
               </p>
               <p class="price">￥{{item.price}}.0</p>
               <p class="salesCount">
@@ -47,7 +47,8 @@ export default {
   data(){
     return{
       mygoodslist:[],
-      show:true
+      show:true,
+      newgoods:[]
     }
   },
   methods:{
@@ -63,13 +64,30 @@ export default {
         console.log(this.mygoodslist)
 
       },
-      clear(e){
-
+      clear(id){
         var storage = window.localStorage;
+        if(storage.getItem("mygoods")!=''){
+        
         let goodsArr = JSON.parse(storage.getItem("mygoods"));
-        
-        console.log(e.target.parentNode.parentNode.parentNode)
-        
+
+            for(var i=0;i<goodsArr.length-1;i++){
+              if(goodsArr[i].id==id){
+                goodsArr.splice(i,1);
+                break;
+              }
+          }
+         
+         storage.setItem("mygoods",JSON.stringify(goodsArr));
+          this.$store.commit('myCollect'); 
+           
+          console.log(goodsArr) 
+          this.mygoodslist = goodsArr
+          if(goodsArr.length==1){
+            storage.setItem("mygoods",'');
+            this.mygoodslist = ''
+          }
+
+        } 
 
       },
       noshow(){
