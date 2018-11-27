@@ -8,34 +8,14 @@
 		      <router-link 
 		      v-for="(item,index) in navlist" :key="index" 
 		      tag="div" 
-		      :class="swiper_slide"  :path="selInit"  @click.native="toggleNav(item)"
+		      v-bind:class="[swiper_slide ? 'swiper-slide swiper-slide-active' : 'swiper_slide']"
+		      :path="selInit"  @click.native="toggleNav(item,swiper_slide)"
 		      :to="{ path: 'NavList', query: { id: item.id,type:item.type}}"
 		      >{{item.title}}</router-link>
-
 
 		    </div>
 		  </div>
 		</div>
-
-			<!-- Swiper -->
-	  <!-- <div class="swiper-container">
-	    <div class="swiper-wrapper">
-	      <div class="swiper-slide">Slide 1</div>
-	      <div class="swiper-slide">Slide 2</div>
-	      <div class="swiper-slide">Slide 3</div>
-	      <div class="swiper-slide">Slide 4</div>
-	      <div class="swiper-slide">Slide 5</div>
-	      <div class="swiper-slide">Slide 6</div>
-	      <div class="swiper-slide">Slide 7</div>
-	      <div class="swiper-slide">Slide 8</div>
-	      <div class="swiper-slide">Slide 9</div>
-	      <div class="swiper-slide">Slide 10</div>
-	    </div> -->
-	    <!-- Add Arrows -->
-	    <!-- <div class="swiper-button-next"></div>
-	    <div class="swiper-button-prev"></div>
-	  </div> -->
-
 
 	</div>
 	
@@ -52,7 +32,7 @@
     data(){
     	return {
     		navlist:["丽子","TOP单品"],
-    		swiper_slide:"swiper-slide",
+    		swiper_slide:false,
     		selInit:"1",
     		selectedId: 0,
     		options: {
@@ -67,8 +47,9 @@
 	  		console.log(swiper_slide,$event)
 
 	  	},
-	  	toggleNav(item){
+	  	toggleNav(item,swiper_slide){
 	  		this.selInit =item.title;
+	  		swiper_slide = true;
 	  	},
 	  	toggleList(id,type){
 	  		console.log(id);
@@ -117,21 +98,19 @@
 	 	
 	 },
 	 mounted(){
-		  var swiper = new Swiper('.swiper-container',{
-		  	// spaceBetween: ,
-            slidesPerView:'auto',
-            freeMode: true
-		  });
-
 
 		var mySwiper = new Swiper('.swiper-container',{
 			freeMode : true,
+			freeModeMomentum : true,
 		})
 
 
-
-	    }
-
+	    },
+	destroyed(){
+				//实例化用完之后记得移除
+				// this.mySwiper=null
+				delete this.mySwiper
+			}
 
 
  }
@@ -156,7 +135,7 @@
 	background: #fff;
 	#nav{
 	// overflow-x:auto;
-	.swiper-slide{
+		div{
 			.w(76)!important;
 			.h(40);
 			.lh(40);
@@ -170,7 +149,13 @@
 }
 
 .sel{
+	color: #e4393c;
 	border-bottom:2px solid red;
+}
+
+.router-link-exact-active {
+	border-bottom:2px solid red;
+	color: #e4393c;
 }
 
 </style>

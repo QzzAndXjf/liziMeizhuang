@@ -53,6 +53,7 @@ const store = new Vuex.Store({
       let goods = JSON.parse(storage.getItem("my"));
       if(state.mygoods.length==0){
         state.mygoods.push(goods);
+
         storage.setItem("mygoods",JSON.stringify(state.mygoods));
         state.mygoods = JSON.parse(storage.getItem("mygoods"));
       }else{
@@ -61,13 +62,16 @@ const store = new Vuex.Store({
         });
         console.log(panduan)
         if(panduan.indexOf(true) == -1){ 
+
           state.mygoods.push(goods);
+
           storage.setItem("mygoods",JSON.stringify(state.mygoods));
           state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(state.mygoods);
         }else{
           let idx = panduan.indexOf(true);
           let currendGood = JSON.parse(storage.getItem("mygoods"));
+
           storage.setItem("mygoods",JSON.stringify(currendGood));
           state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(currendGood);

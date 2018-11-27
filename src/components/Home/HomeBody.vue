@@ -31,5 +31,8 @@ export default{
 </script>
 <style lang="less" scoped>
 @import url('../../styls/main.less');
+div{
+     .w(375);
+}
 
 </style>
