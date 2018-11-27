@@ -55,7 +55,7 @@ export default{
             var storage = window.localStorage;
             let goodsArr = JSON.parse(storage.getItem("goods"));
             this.goodlist =  goodsArr;
-            // console.log(this.goodlist[0].id)
+            // console.log(this.goodlist[sss0s].id)
         },
         // changeNum(num){
         //     return num;
@@ -73,7 +73,7 @@ export default{
               }
               console.log(arr)
              
-             storage.setItem("goods",JSON.stringify(arr));
+            storage.setItem("goods",JSON.stringify(arr));
             this.$store.commit('addGoodsInCar'); 
             this.goodlist = arr;
               if(arr.length==0){
