@@ -60,6 +60,7 @@ export default {
       getMygoods(){
         var storage = window.localStorage;
         this.mygoodslist = JSON.parse(storage.getItem("mygoods"));
+        
         console.log(this.mygoodslist)
 
       },

@@ -1,11 +1,11 @@
 <template>
 	<div class="bottom">
 		 <div class="bd"> 
-		 	<span class="price">￥<b id="s_nowprice">69.00</b></span> 
+		 	<span class="price">￥<b id="s_nowprice">{{this.$route.query.price}}</b></span> 
 		 	<a href="javascript:;" class="kefu" onclick="NTKF.im_openInPageChat('lz_1019_9999')">
 		 		<i class="fa fa-commenting" aria-hidden="true"></i>客服
 		 	</a>  
-		 	<a href="javascript:;" class="btn" id="buy_btn">加入购物车</a>  
+		 	<a href="javascript:;" class="btn" id="buy_btn" @click="addCar">加入购物车</a>  
 		 </div> 
 	</div>
 </template>
@@ -19,6 +19,19 @@ export default{
     	return {};
     },
     methods:{
+    	addCar(){
+    		let singleGood = this.$route.query;
+     		var storage = window.localStorage;
+            let goodObj = Object.assign(singleGood,{num:1})
+            let uname = storage.getItem("uname");
+            if(uname){
+                 storage.setItem("good",JSON.stringify(goodObj));
+                // this.$store.commit('incrementShopcar');
+                this.$store.commit('addGoodsInCar');
+            }else{
+                alert('请先登录');
+            }
+    	}
     	
     }
     

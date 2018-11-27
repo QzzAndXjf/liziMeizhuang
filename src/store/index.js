@@ -18,7 +18,8 @@ const store = new Vuex.Store({
     	var storage = window.localStorage;
       let goodObj = JSON.parse(storage.getItem("good"));
       console.log(state.carMsg.length);
-      if(JSON.parse(storage.getItem("goods")).length == 0){
+      if(!JSON.parse(storage.getItem("goods"))){
+        console.log("123")
           state.shopcarNum++;
           state.carMsg.push(goodObj);
           storage.setItem("goods",JSON.stringify(state.carMsg));
@@ -53,6 +54,7 @@ const store = new Vuex.Store({
       let goods = JSON.parse(storage.getItem("my"));
       if(state.mygoods.length==0){
         state.mygoods.push(goods);
+
         storage.setItem("mygoods",JSON.stringify(state.mygoods));
         state.mygoods = JSON.parse(storage.getItem("mygoods"));
       }else{
@@ -60,13 +62,16 @@ const store = new Vuex.Store({
             return item.id == goods.id?true:false;
         });
         if(panduan.indexOf(true) == -1){ 
+
           state.mygoods.push(goods);
+
           storage.setItem("mygoods",JSON.stringify(state.mygoods));
           state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(state.mygoods);
         }else{
           let idx = panduan.indexOf(true);
           let currendGood = JSON.parse(storage.getItem("mygoods"));
+
           storage.setItem("mygoods",JSON.stringify(currendGood));
           state.mygoods = JSON.parse(storage.getItem("mygoods"));
           console.log(currendGood);

@@ -18,7 +18,7 @@
 						</p>
 						<div class="bd">
 							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-							<img :src="'https://images.weserv.nl/?url='+item.picUrl" alt="">
+							<img :src="'https://images.weserv.nl/?url='+(item.picUrl?item.picUrl:item.pic)" alt="">
 							<div>
 								<p>
 									<span>{{item.name}}</span>

@@ -17,7 +17,7 @@
         <transition
             leave-active-class="animated fadeOut"
             enter-active-class="animated slideInLeft">
-        <span>{{this.$store.state.shopcarNum}}</span>
+        <span>{{shopNum}}</span>
       </transition>
       </div>
     </div>
@@ -34,6 +34,7 @@ export default{
     	return {
          show:false,
          distance:200,
+         shopNum:""
     	}
     },
     methods:{
@@ -50,6 +51,8 @@ export default{
 
     },
     created(){
+      let storage = window.localStorage;
+      this.shopNum = storage.getItem("goods")?JSON.parse(storage.getItem("goods")).length:0;
       window.addEventListener('scroll',()=>{
 
         let y=window.scrollY

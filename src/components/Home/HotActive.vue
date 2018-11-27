@@ -7,14 +7,14 @@
                   infinite-scroll-distance="100"
                 >  
                     <li v-for="(item,index) in hotActiveList" :key="index"> 
-                        <a href="/product-595669597.html"> 
+                        <a> 
                             <img :src="'https://images.weserv.nl/?url='+item.picSmall"> 
                             <h2>{{item.productTitle}}</h2> 
                             <p class="info">{{item.recommend}}</p> 
                             <div class="price"> 
                                 <span class="now">￥<em>{{item.proPrice}}</em></span> 
                                 <span class="old">￥158</span> <span>已售出：{{item.salesCount}}</span> 
-                                <span class="button">加入购物车</span> 
+                                <span class="button" @click="addCar(item)">加入购物车</span> 
                             </div> 
                         </a>  
                         <div class ="xianshi"></div>    
@@ -46,8 +46,20 @@
             
     },
     methods:{
-       // https://m.lizi.com/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset=0
-       //https://m.lizi.com/newIndex/recItems?max=10&url=%2FnewIndex%2FrecItems&id=&type=HOT&offset=10
+
+        addCar(item){
+            var storage = window.localStorage;
+            let goodObj = Object.assign(item,{num:1})
+            let uname = storage.getItem("uname");
+            if(uname){
+                 storage.setItem("good",JSON.stringify(goodObj));
+                // this.$store.commit('incrementShopcar');
+                this.$store.commit('addGoodsInCar');
+            }else{
+                alert('请先登录');
+            }
+           
+        },
        loadMore(){
         this.page = this.page+5;
         // console.log(this.page)
@@ -107,6 +119,7 @@
 @import url('../../styls/main.less');
 
 #hot_list{
+
     .showEnd{
         .fs(20);
         .h(50);
