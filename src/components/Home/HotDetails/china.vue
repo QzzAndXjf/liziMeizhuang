@@ -1116,6 +1116,7 @@
             this.$qzzrouter.push("/");
         },
         addCar(item){
+            
             var storage = window.localStorage;
             let goodObj = Object.assign(item,{num:1})
             let uname = storage.getItem("uname");

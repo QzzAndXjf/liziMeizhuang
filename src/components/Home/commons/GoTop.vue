@@ -53,8 +53,10 @@ export default{
     created(){
       let storage = window.localStorage;
       this.shopNum = storage.getItem("goods")?JSON.parse(storage.getItem("goods")).length:0;
+
       window.addEventListener('scroll',()=>{
 
+      this.shopNum = storage.getItem("goods")?JSON.parse(storage.getItem("goods")).length:0;
         let y=window.scrollY
         if (y>=this.distance) {
           if (this.show==false) {

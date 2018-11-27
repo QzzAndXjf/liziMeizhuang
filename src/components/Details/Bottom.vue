@@ -28,6 +28,7 @@ export default{
                  storage.setItem("good",JSON.stringify(goodObj));
                 // this.$store.commit('incrementShopcar');
                 this.$store.commit('addGoodsInCar');
+                this.$router.push({ path: '/shopcar' });
             }else{
                 alert('请先登录');
             }
