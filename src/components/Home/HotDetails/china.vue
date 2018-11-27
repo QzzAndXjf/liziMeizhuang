@@ -1127,7 +1127,7 @@
                 alert('请先登录');
             }
            
-        },
+        }
         // removeAaary(_arr, _obj) {
         //     var length = _arr.length;
         //     for (var i = 0; i < length; i++) {

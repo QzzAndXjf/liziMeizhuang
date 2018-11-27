@@ -20,6 +20,9 @@ const store = new Vuex.Store({
       console.log(state.carMsg.length);
       if(!JSON.parse(storage.getItem("goods"))){
         console.log("123")
+// =======
+//       if(state.carMsg.length == 0){
+// >>>>>>> 5cdfbb3525174f5c578429394b5c1d8b043374ee
           state.shopcarNum++;
           state.carMsg.push(goodObj);
           storage.setItem("goods",JSON.stringify(state.carMsg));
@@ -61,6 +64,7 @@ const store = new Vuex.Store({
         let panduan = state.mygoods.map((item, index)=>{
             return item.id == goods.id?true:false;
         });
+        console.log(panduan)
         if(panduan.indexOf(true) == -1){ 
 
           state.mygoods.push(goods);
