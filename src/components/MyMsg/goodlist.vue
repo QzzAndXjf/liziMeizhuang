@@ -57,32 +57,8 @@ export default{
             this.goodlist =  goodsArr;
             // console.log(this.goodlist[sss0s].id)
         },
-        // changeNum(num){
-        //     return num;
-        // },
-        clear(currentId){
-        var storage = window.localStorage;
-        if(storage.getItem("goods")!=''){
-            let arr = JSON.parse(storage.getItem("goods"));
-
-                for(var i=0;i<arr.length;i++){
-                  if(arr[i].id==currentId){
-                    arr.splice(i,1);
-                    break;
-                  }
-              }
-              console.log(arr)
-             
-            storage.setItem("goods",JSON.stringify(arr));
-            this.$store.commit('addGoodsInCar'); 
-            this.goodlist = arr;
-              if(arr.length==0){
-                storage.setItem("goods",'');
-                this.goodlist = ''
-              }
-
-            } 
-
+        changeNum(num){
+            return num;
         }
     },
     created(){

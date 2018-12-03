@@ -18,7 +18,7 @@ const store = new Vuex.Store({
     	var storage = window.localStorage;
       let goodObj = JSON.parse(storage.getItem("good"));
       console.log(state.carMsg.length);
-      if(!JSON.parse(storage.getItem("goods"))){
+      if(!storage.getItem("goods")){
           state.shopcarNum++;
           state.carMsg.push(goodObj);
           storage.setItem("goods",JSON.stringify(state.carMsg));
@@ -42,8 +42,7 @@ const store = new Vuex.Store({
             storage.setItem("goods",JSON.stringify(currendGood));
             state.carMsg = JSON.parse(storage.getItem("goods"));
             console.log(currendGood);
-            // state.carMsg.push(goodObj);
-            
+            // state.carMsg.push(goodObj);      
           }
 
       } 
