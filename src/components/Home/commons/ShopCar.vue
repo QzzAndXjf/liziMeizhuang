@@ -11,13 +11,13 @@
 				<ul>
 					<li v-for="(item,index) in shopcarData" :key="index">
 						<p class="hd">
-							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							<i :class="fa?'fa fa-check-circle-o':'fa fa-check-circle-o sel'" aria-hidden="true" @click="selectGood(fa)"></i>
 							<!-- <i class="fa fa-check-circle" aria-hidden="true"></i> -->
 							<span>艾斯臣旗舰店</span>
 							<i class="fa fa-commenting" aria-hidden="true"></i>
 						</p>
 						<div class="bd">
-							<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							<i :class="fa?'fa fa-check-circle-o':'fa fa-check-circle-o sel'" aria-hidden="true"></i>
 							<img :src="'https://images.weserv.nl/?url='+(item.picUrl?item.picUrl:item.pic)" alt="">
 							<div>
 								<p>
@@ -64,10 +64,15 @@
 		name:"ShopCar",
 		data(){
 			return {
-				shopcarData:[]
+				shopcarData:[],
+				fa:false
 			}
 		},
 		methods:{
+			selectGood(fa){
+				this.fa  = !this.fa;
+				console.log(this.fa)
+			},
 			addNum(){
 				alert(12)
 				// let num = this.$emit("Num");
@@ -125,6 +130,7 @@
 				.lh(44);
 				text-align: center;
 			}
+
 			span{
 				.fs(18);
 				font-style: normal;
@@ -155,7 +161,12 @@
 		  			}
 		  			i.fa-commenting{
 		  				color: #ff666b;
+
 		  			}
+
+					i.sel{
+						color: #ff666b;
+					}
 		  			span{
 		  			.padding(0,0,0,10);
 		  			.w(285);
@@ -176,6 +187,9 @@
 		  			>i.fa-check-circle-o{
 		  				color:#999;
 		  			}
+		  			>i.sel{
+						color: #ff666b;
+					}
 		  			img{
 		  				.w(74);
 		  				.h(74);
@@ -301,5 +315,6 @@
 		}
 
 	}
+	
 	
 </style>                                          
