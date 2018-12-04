@@ -4,7 +4,9 @@
 		<div id="navbar">
 		  <div class="swiper-container">
 		    <div class="swiper-wrapper" id="nav">
-			  <router-link :class="swiper_slide" tag="div" to="HomeBody" active-class="sel">丽子</router-link>
+			  <router-link  
+			  v-bind:class="[swiper_slide ? 'swiper-slide swiper-slide-active' : 'swiper_slide']" 
+			  tag="div" to="HomeBody" >丽子</router-link>
 		      <router-link 
 		      v-for="(item,index) in navlist" :key="index" 
 		      tag="div" 

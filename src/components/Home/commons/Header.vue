@@ -8,6 +8,8 @@
 
 <script>
 
+import {Toast} from 'mint-ui';
+
 export default{
 	name:'Header',
 	components:{},
@@ -22,7 +24,11 @@ export default{
     		if(uname){
     			this.$router.push("/mylizi");
     		}else {
-    			alert("您还未登陆");
+    			let toast = Toast({
+                  message: '您还未登录',
+                  iconClass: 'fa fa-times',
+                  // duration:-1
+                });
     			this.$router.push("/login");
     		}
     		

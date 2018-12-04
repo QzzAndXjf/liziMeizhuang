@@ -53,7 +53,7 @@ export default {
   },
   methods:{
     back(){
-      this.router.go(-1)
+      this.$router.go(-1)
     },
     goHome(){
       this.$router.push('/home/HomeBody')

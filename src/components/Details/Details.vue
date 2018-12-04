@@ -56,6 +56,8 @@
 </template>
 <script>
     import Vue from 'vue';
+    import {Toast} from 'mint-ui';
+
     import Header from './Header.vue';
     import Bottom from './Bottom.vue';
     import GoTop from '../../components/Home/commons/GoTop.vue';
@@ -120,10 +122,15 @@ export default{
             if(uname){   
                 this.fav_btn = "shoucang";
                 this.haha = "已收藏";
+                
                 storage.setItem("my",JSON.stringify(goods));
                 this.$store.commit('myCollect');      
             }else{
-                alert('请先登录');
+                let toast = Toast({
+                  message: '您还未登录',
+                  iconClass: 'fa fa-exclamation-circle',
+                  // duration:-1
+                });
             }
         }
         

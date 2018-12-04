@@ -73,7 +73,13 @@ export default {
             this.$axios.post('./api/zhuce/check',qs.stringify({name:this.user,pass:this.pass}))
             .then((res)=>{
               if(res.data.msg =='查询成功'){
-                alert('登录成功');
+
+                let toast = Toast({
+                  message: '登录成功',
+                  iconClass: 'fa fa-check',
+                  // duration:-1
+                });
+
                  var storage = window.localStorage;
                  storage.setItem("uname",this.user);
                  this.$store.commit('setUname');
