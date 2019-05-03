@@ -1,29 +1,29 @@
 <template>
     <div>
-        <div class="partbd"> 
-            <div id="hot_list"> 
+        <div class="partbd">
+            <div id="hot_list">
                 <ul class="hot_list"
-                  v-infinite-scroll="loadMore"
+
                   infinite-scroll-distance="100"
-                >  
-                    <li v-for="(item,index) in hotActiveList" :key="index"> 
-                        <a> 
-                            <img :src="'https://images.weserv.nl/?url='+item.picSmall"> 
-                            <h2>{{item.productTitle}}</h2> 
-                            <p class="info">{{item.recommend}}</p> 
-                            <div class="price"> 
-                                <span class="now">￥<em>{{item.proPrice}}</em></span> 
-                                <span class="old">￥158</span> <span>已售出：{{item.salesCount}}</span> 
-                                <span class="button" @click="addCar(item)">加入购物车</span> 
-                            </div> 
-                        </a>  
-                        <div class ="xianshi"></div>    
-                    </li>  
-                </ul> 
+                >
+                    <li v-for="(item,index) in hotActiveList" :key="index">
+                        <a>
+                            <img :src="'https://images.weserv.nl/?url='+item.picSmall">
+                            <h2>{{item.productTitle}}</h2>
+                            <p class="info">{{item.recommend}}</p>
+                            <div class="price">
+                                <span class="now">￥<em>{{item.proPrice}}</em></span>
+                                <span class="old">￥158</span> <span>已售出：{{item.salesCount}}</span>
+                                <span class="button" @click="addCar(item)">加入购物车</span>
+                            </div>
+                        </a>
+                        <div class ="xianshi"></div>
+                    </li>
+                </ul>
                 <p :class="daodi">{{dataEnd}}</p>
             </div>
         </div>
-    </div> 
+    </div>
 </template>
 
 <script>
@@ -43,7 +43,7 @@
             dataEnd:"",
             daodi:""
         }
-            
+
     },
     methods:{
 
@@ -58,7 +58,7 @@
             }else{
                 alert('请先登录');
             }
-           
+
         },
        loadMore(){
         this.page = this.page+5;
@@ -109,9 +109,9 @@
     created(){
         this.getHotActiveData();
     }
-    
 
-}	
+
+}
 
 </script>
 
@@ -192,5 +192,5 @@
                 }
             }
         }
-   
+
 </style>
